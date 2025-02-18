@@ -1,0 +1,74 @@
+.article-list-container {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #0e1b1b;
+}
+
+h2 {
+    margin: 0;
+    padding: 8px 8px 0;
+    font-size: 16px;
+}
+
+.article-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 4px;
+    margin: 0;
+    padding: 16px;
+    list-style-type: none;
+}
+
+.article-card {
+    width: calc(50% - 4px);
+    min-width: 420px;
+    border: 2px solid #d8cbe1;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(0.5fr);
+    gap: 4px;
+}
+
+.title {
+    grid-column: 1 / span 4;
+    margin: 0;
+    color: #7730b0;
+}
+
+img {
+    width: 100%;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 3;
+}
+
+.author {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 3;
+}
+
+.created-at {
+    grid-column: 2 / span 3;
+    grid-row: 3 / span 3;
+}
+
+.topic {
+    grid-column: 2 / span 1;
+    grid-row: 4 / span 1;
+}
+
+.comment-count {
+    grid-column: 3 / span 1;
+    grid-row: 4 / span 1;
+}
+
+.votes {
+    grid-column: 4 / span 1;
+    grid-row: 4 / span 1;
+}
+
+.articles-icon {
+    color: #7730b0;
+}

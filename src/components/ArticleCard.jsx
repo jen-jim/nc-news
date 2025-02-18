@@ -9,22 +9,28 @@ export default function ArticleCard({ article }) {
         votes
     } = article;
 
+    const formattedDate = new Date(created_at)
+        .toString()
+        .split(" ")
+        .slice(0, 4)
+        .join(" ");
+
     return (
         <>
-            <h2>{title}</h2>
+            <h3 className="title">{title}</h3>
             <img src={article_img_url} />
-            <p className="created-at">created at: {created_at}</p>
             <p className="author">by: {author}</p>
+            <p className="created-at">{formattedDate}</p>
             <p className="topic">
-                <i className="fa-solid fa-hashtag topic-icon"></i>
+                <i className="fa-solid fa-hashtag articles-icon"></i>
                 {topic}
             </p>
             <p className="comment-count">
-                <i className="fa-solid fa-comment comment-icon"></i>
+                <i className="fa-solid fa-comment articles-icon"></i>
                 {comment_count}
             </p>
             <p className="votes">
-                <i className="fa-solid fa-thumbs-up votes-icon"></i>
+                <i className="fa-solid fa-thumbs-up articles-icon"></i>
                 {votes}
             </p>
         </>
