@@ -26,10 +26,15 @@ h2 {
     min-width: 420px;
     border: 2px solid #d8cbe1;
     padding: 8px;
+}
+
+.article-nav-link {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     grid-template-rows: repeat(0.5fr);
     gap: 4px;
+    color: #7730b0;
+    text-decoration: none;
 }
 
 .title {
