@@ -1,3 +1,5 @@
+import { formatDate } from "../utils";
+
 export default function Article({ article }) {
     const {
         title,
@@ -10,17 +12,11 @@ export default function Article({ article }) {
         comment_count
     } = article;
 
-    const formattedDate = new Date(created_at).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    });
-
     return (
         <div className="article-container">
             <h3 className="title">{title}</h3>
             <p className="author">by: {author}</p>
-            <p className="created-at">{formattedDate}</p>
+            <p className="created-at">{formatDate(created_at)}</p>
             <p className="topic">
                 <i className="fa-solid fa-hashtag articles-icon"></i>
                 {topic}
