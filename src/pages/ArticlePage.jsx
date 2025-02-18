@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { fetchArticleByArticleId } from "../api";
 import Loading from "../components/Loading";
 import Article from "../components/Article";
+import "../css/article.css";
 
 export default function ArticlePage() {
     const { article_id } = useParams();

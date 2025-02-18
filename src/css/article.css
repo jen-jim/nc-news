@@ -1,0 +1,15 @@
+.article-container {
+    padding: 16px;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #0e1b1b;
+}
+
+.img-container {
+    text-align: center;
+}
+
+img {
+    width: 75%;
+}
