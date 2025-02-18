@@ -1,8 +1,9 @@
-export default function ArticleCard({ article }) {
+export default function Article({ article }) {
     const {
         title,
         topic,
         author,
+        body,
         created_at,
         votes,
         article_img_url,
@@ -16,23 +17,26 @@ export default function ArticleCard({ article }) {
     });
 
     return (
-        <>
+        <div className="article-container">
             <h3 className="title">{title}</h3>
-            <img src={article_img_url} />
             <p className="author">by: {author}</p>
             <p className="created-at">{formattedDate}</p>
             <p className="topic">
                 <i className="fa-solid fa-hashtag articles-icon"></i>
                 {topic}
             </p>
-            <p className="comment-count">
-                <i className="fa-solid fa-comment articles-icon"></i>
-                {comment_count}
-            </p>
             <p className="votes">
                 <i className="fa-solid fa-thumbs-up articles-icon"></i>
                 {votes}
             </p>
-        </>
+            <div className="img-container">
+                <img src={article_img_url} />
+            </div>
+            <p className="body">{body}</p>
+            <p className="comment-count">
+                <i className="fa-solid fa-comment articles-icon"></i>
+                {comment_count}
+            </p>
+        </div>
     );
 }

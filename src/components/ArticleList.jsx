@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router";
 import { fetchArticles } from "../api";
 import Loading from "./Loading";
 import ArticleCard from "./ArticleCard";
@@ -25,7 +26,12 @@ export default function ArticleList() {
             <ul className="article-list">
                 {articles.map((article) => (
                     <li key={article.article_id} className="article-card">
-                        <ArticleCard article={article} />
+                        <NavLink
+                            to={`/articles/${article.article_id}`}
+                            className="article-nav-link"
+                        >
+                            <ArticleCard article={article} />
+                        </NavLink>
                     </li>
                 ))}
             </ul>
