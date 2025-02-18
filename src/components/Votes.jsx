@@ -4,10 +4,19 @@ import { patchArticleVotes } from "../api";
 export default function Votes({ article_id, votes }) {
     const [currVotes, setCurrVotes] = useState(0);
 
-    function handleVotes() {
+    function handleUpvotes() {
         if (currVotes === 0) {
             setCurrVotes(1);
-            patchArticleVotes(article_id).catch(() => {
+            patchArticleVotes(article_id, 1).catch(() => {
+                setCurrVotes(0);
+            });
+        }
+    }
+
+    function handleDownvotes() {
+        if (currVotes === 0) {
+            setCurrVotes(-1);
+            patchArticleVotes(article_id, -1).catch(() => {
                 setCurrVotes(0);
             });
         }
@@ -16,12 +25,18 @@ export default function Votes({ article_id, votes }) {
     return (
         <div className="votes-container">
             <i className="fa-solid fa-thumbs-up articles-icon"></i>
-            <button className="votes-button">
-                <i className="fa-solid fa-minus"></i>
-            </button>
+            {!currVotes ? (
+                <button className="votes-button" onClick={handleDownvotes}>
+                    <i className="fa-solid fa-minus"></i>
+                </button>
+            ) : (
+                <button className="votes-button" disabled>
+                    <i className="fa-solid fa-minus"></i>
+                </button>
+            )}
             {votes + currVotes}
             {!currVotes ? (
-                <button className="votes-button" onClick={handleVotes}>
+                <button className="votes-button" onClick={handleUpvotes}>
                     <i className="fa-solid fa-plus"></i>
                 </button>
             ) : (

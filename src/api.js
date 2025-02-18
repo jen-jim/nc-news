@@ -20,6 +20,6 @@ export function fetchCommentsByArticleId(articleId) {
         .then(({ data }) => data.comments);
 }
 
-export function patchArticleVotes(articleId) {
-    return newsApi.patch(`/articles/${articleId}`, { inc_votes: 1 });
+export function patchArticleVotes(articleId, voteAmount) {
+    return newsApi.patch(`/articles/${articleId}`, { inc_votes: voteAmount });
 }
