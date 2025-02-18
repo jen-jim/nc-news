@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchArticleByArticleId } from "../api";
 import Loading from "../components/Loading";
+import Article from "../components/Article";
 
-export default function Article() {
+export default function ArticlePage() {
     const { article_id } = useParams();
     const [currArticle, setCurrArticle] = useState({});
     const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +12,6 @@ export default function Article() {
     useEffect(() => {
         setIsLoading(true);
         fetchArticleByArticleId(article_id).then((articleFromApi) => {
-            // console.log(articleFromApi);
             setCurrArticle(articleFromApi);
             setIsLoading(false);
         });
@@ -21,10 +21,5 @@ export default function Article() {
         return <Loading />;
     }
 
-    return (
-        <div>
-            <p>in article page</p>
-            {console.log(currArticle)}
-        </div>
-    );
+    return <Article article={currArticle} />;
 }
