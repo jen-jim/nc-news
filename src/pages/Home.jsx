@@ -1,3 +1,9 @@
+import ArticleList from "../components/ArticleList";
+
 export default function Home() {
-    return <p>in home page</p>;
+    return (
+        <>
+            <ArticleList />
+        </>
+    );
 }
