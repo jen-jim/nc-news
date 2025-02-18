@@ -14,19 +14,24 @@
 }
 
 h1 {
-    font-family: "Poetsen One", serif;
+    font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: #7730b0;
 }
 
 .home-button {
-    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
     border: 2px solid #7730b0;
     border-radius: 50%;
     background-color: #d8cbe1;
     font-size: 28px;
     color: #7730b0;
+    text-decoration: none;
 }
 
 .search-input {
@@ -66,7 +71,7 @@ h1 {
 .log-in {
     padding: 0 12px;
     font-size: 20px;
-    font-family: "Poetsen One", serif;
+    font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: #7730b0;

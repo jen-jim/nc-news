@@ -5,8 +5,12 @@ export default function CommentCard({ comment }) {
 
     return (
         <>
-            <p className="comment-author">{author}</p>
-            <p className="comment-created-at">{formatDate(created_at)}</p>
+            <p className="comment-details">
+                <span className="comment-author">{author}</span>{" "}
+                <span className="comment-created-at">
+                    {formatDate(created_at)}
+                </span>
+            </p>
             <p className="comment-body">{body}</p>
             <p className="votes">
                 <i className="fa-solid fa-thumbs-up comments-icon"></i>
