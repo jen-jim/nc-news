@@ -1,8 +1,17 @@
 import { formatDate } from "../utils";
+import Votes from "./Votes";
 
 export default function Article({ article }) {
-    const { title, topic, author, body, created_at, votes, article_img_url } =
-        article;
+    const {
+        article_id,
+        title,
+        topic,
+        author,
+        body,
+        created_at,
+        votes,
+        article_img_url
+    } = article;
 
     return (
         <div className="article-container">
@@ -13,10 +22,7 @@ export default function Article({ article }) {
                 <i className="fa-solid fa-hashtag articles-icon"></i>
                 {topic}
             </p>
-            <p className="votes">
-                <i className="fa-solid fa-thumbs-up articles-icon"></i>
-                {votes}
-            </p>
+            <Votes article_id={article_id} votes={votes} />
             <div className="img-container">
                 <img src={article_img_url} />
             </div>

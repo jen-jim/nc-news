@@ -55,3 +55,14 @@ img {
     font-size: 16px;
     color: #7730b0;
 }
+
+.votes-button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #7730b0;
+}
+
+button:disabled {
+    color: #d8cbe1;
+}
