@@ -2,6 +2,7 @@ import Header from "./Header";
 import HomeButton from "./HomeButton";
 import SearchBar from "./SearchBar";
 import UserButton from "./UserButton";
+import "../css/nav-bar.css";
 
 export default function NavBar() {
     return (
