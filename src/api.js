@@ -13,3 +13,9 @@ export function fetchArticleByArticleId(articleId) {
         .get(`/articles/${articleId}`)
         .then(({ data }) => data.article);
 }
+
+export function fetchCommentsByArticleId(articleId) {
+    return newsApi
+        .get(`/articles/${articleId}/comments`)
+        .then(({ data }) => data.comments);
+}

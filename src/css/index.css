@@ -4,4 +4,8 @@
 
 body {
     margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #0e1b1b;
 }

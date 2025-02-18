@@ -1,9 +1,5 @@
 .article-container {
-    padding: 16px;
-    font-family: "Nunito", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    color: #0e1b1b;
+    padding: 16px 16px 0 16px;
 }
 
 .img-container {
@@ -12,4 +8,50 @@
 
 img {
     width: 75%;
+}
+
+.comments-list-container {
+    background-color: #d8cbe1;
+    border: 2px solid #d8cbe1;
+    margin: 0;
+    padding: 8px;
+    color: #7730b0;
+}
+
+.comments-list {
+    margin: 0;
+    padding: 8px;
+    list-style-type: none;
+}
+
+.comment-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+    border: 2px solid #7730b0;
+    border-radius: 40px;
+    margin: 4px 0;
+    padding: 16px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.comment-body {
+    color: #0e1b1b;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.drawer-button {
+    border: none;
+    background: none;
+    padding: 0 16px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    color: #7730b0;
 }

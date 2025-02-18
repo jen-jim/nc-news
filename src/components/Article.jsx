@@ -1,26 +1,14 @@
-export default function Article({ article }) {
-    const {
-        title,
-        topic,
-        author,
-        body,
-        created_at,
-        votes,
-        article_img_url,
-        comment_count
-    } = article;
+import { formatDate } from "../utils";
 
-    const formattedDate = new Date(created_at).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    });
+export default function Article({ article }) {
+    const { title, topic, author, body, created_at, votes, article_img_url } =
+        article;
 
     return (
         <div className="article-container">
             <h3 className="title">{title}</h3>
             <p className="author">by: {author}</p>
-            <p className="created-at">{formattedDate}</p>
+            <p className="created-at">{formatDate(created_at)}</p>
             <p className="topic">
                 <i className="fa-solid fa-hashtag articles-icon"></i>
                 {topic}
@@ -33,10 +21,6 @@ export default function Article({ article }) {
                 <img src={article_img_url} />
             </div>
             <p className="body">{body}</p>
-            <p className="comment-count">
-                <i className="fa-solid fa-comment articles-icon"></i>
-                {comment_count}
-            </p>
         </div>
     );
 }
