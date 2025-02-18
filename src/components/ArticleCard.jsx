@@ -9,11 +9,11 @@ export default function ArticleCard({ article }) {
         votes
     } = article;
 
-    const formattedDate = new Date(created_at)
-        .toString()
-        .split(" ")
-        .slice(0, 4)
-        .join(" ");
+    const formattedDate = new Date(created_at).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    });
 
     return (
         <>
