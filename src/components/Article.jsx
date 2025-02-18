@@ -1,16 +1,8 @@
 import { formatDate } from "../utils";
 
 export default function Article({ article }) {
-    const {
-        title,
-        topic,
-        author,
-        body,
-        created_at,
-        votes,
-        article_img_url,
-        comment_count
-    } = article;
+    const { title, topic, author, body, created_at, votes, article_img_url } =
+        article;
 
     return (
         <div className="article-container">
@@ -29,10 +21,6 @@ export default function Article({ article }) {
                 <img src={article_img_url} />
             </div>
             <p className="body">{body}</p>
-            <p className="comment-count">
-                <i className="fa-solid fa-comment articles-icon"></i>
-                {comment_count}
-            </p>
         </div>
     );
 }

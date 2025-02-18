@@ -4,6 +4,7 @@ import { fetchArticleByArticleId } from "../api";
 import Loading from "../components/Loading";
 import Article from "../components/Article";
 import CommentList from "../components/CommentList";
+import Drawer from "../components/Drawer";
 import "../css/article.css";
 
 export default function ArticlePage() {
@@ -26,7 +27,9 @@ export default function ArticlePage() {
     return (
         <>
             <Article article={currArticle} />
-            <CommentList articleId={article_id} />
+            <Drawer commentCount={currArticle.comment_count}>
+                <CommentList articleId={article_id} />
+            </Drawer>
         </>
     );
 }

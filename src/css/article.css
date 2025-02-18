@@ -1,5 +1,5 @@
 .article-container {
-    padding: 16px;
+    padding: 16px 16px 0 16px;
 }
 
 .img-container {
@@ -45,4 +45,13 @@ img {
 
 .comment-author {
     font-weight: bold;
+}
+
+.drawer-button {
+    border: none;
+    background: none;
+    padding: 0 16px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    color: #7730b0;
 }
