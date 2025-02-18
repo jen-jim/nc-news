@@ -19,3 +19,7 @@ export function fetchCommentsByArticleId(articleId) {
         .get(`/articles/${articleId}/comments`)
         .then(({ data }) => data.comments);
 }
+
+export function patchArticleVotes(articleId, voteAmount) {
+    return newsApi.patch(`/articles/${articleId}`, { inc_votes: voteAmount });
+}
