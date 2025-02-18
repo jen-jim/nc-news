@@ -1,12 +1,12 @@
 export default function ArticleCard({ article }) {
     const {
-        article_img_url,
-        author,
-        comment_count,
-        created_at,
         title,
         topic,
-        votes
+        author,
+        created_at,
+        votes,
+        article_img_url,
+        comment_count
     } = article;
 
     const formattedDate = new Date(created_at).toLocaleDateString("en-GB", {
