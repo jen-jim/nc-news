@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchCommentsByArticleId } from "../api";
 import Loading from "./Loading";
 import CommentCard from "./CommentCard";
+import NewComment from "./NewComment";
 
 export default function CommentList({ articleId }) {
     const [comments, setComments] = useState([]);
@@ -20,7 +21,8 @@ export default function CommentList({ articleId }) {
     }
 
     return (
-        <div className="comments-list-container">
+        <section className="comments-list-container">
+            <NewComment />
             <ul className="comments-list">
                 {comments.map((comment) => {
                     return (
@@ -30,6 +32,6 @@ export default function CommentList({ articleId }) {
                     );
                 })}
             </ul>
-        </div>
+        </section>
     );
 }
