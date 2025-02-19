@@ -54,6 +54,10 @@ h1 {
 }
 
 .user-button-container {
+    text-decoration: none;
+}
+
+.user-button {
     display: flex;
     align-items: center;
     font-size: 16px;
