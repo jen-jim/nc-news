@@ -54,10 +54,6 @@ h1 {
 }
 
 .user-button-container {
-    text-decoration: none;
-}
-
-.user-button {
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -66,6 +62,7 @@ h1 {
     background-color: #d8cbe1;
     border: 2px solid #7730b0;
     border-radius: 20px;
+    text-decoration: none;
 }
 
 .user-icon {

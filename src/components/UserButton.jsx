@@ -7,16 +7,14 @@ export default function UserButton() {
 
     return (
         <NavLink to="/users/login" className="user-button-container">
-            <button className="user-button">
-                {loggedUser ? (
-                    <span className="user-button-contents">
-                        {loggedUser.username}
-                    </span>
-                ) : (
-                    <span className="user-button-contents">Log In</span>
-                )}
-                <i className="fa-solid fa-circle-user user-icon"></i>
-            </button>
+            {loggedUser ? (
+                <span className="user-button-contents">
+                    {loggedUser.username}
+                </span>
+            ) : (
+                <span className="user-button-contents">Log In</span>
+            )}
+            <i className="fa-solid fa-circle-user user-icon"></i>
         </NavLink>
     );
 }

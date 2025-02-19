@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
 import { fetchArticles } from "../api";
 import Loading from "./Loading";
 import ArticleCard from "./ArticleCard";
@@ -21,20 +20,15 @@ export default function ArticleList() {
     }
 
     return (
-        <div className="article-list-container">
+        <section className="article-list-container">
             <h2>Most recent articles:</h2>
             <ul className="article-list">
                 {articles.map((article) => (
                     <li key={article.article_id} className="article-card">
-                        <NavLink
-                            to={`/articles/${article.article_id}`}
-                            className="article-nav-link"
-                        >
-                            <ArticleCard article={article} />
-                        </NavLink>
+                        <ArticleCard article={article} />
                     </li>
                 ))}
             </ul>
-        </div>
+        </section>
     );
 }
