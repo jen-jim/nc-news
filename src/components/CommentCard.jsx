@@ -21,7 +21,7 @@ export default function CommentCard({ comment }) {
                 <i className="fa-solid fa-thumbs-up comments-icon"></i>
                 {votes}
             </p>
-            {loggedUser.username === author && (
+            {loggedUser?.username === author && (
                 <RemoveComment commentId={comment_id} articleId={article_id} />
             )}
         </>
