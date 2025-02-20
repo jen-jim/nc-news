@@ -22,7 +22,16 @@ export default function CommentList({ articleId }) {
 
     return (
         <section className="comments-list-container">
-            <NewComment />
+            <NewComment
+                articleId={articleId}
+                onNewComment={() => {
+                    fetchCommentsByArticleId(articleId).then(
+                        (commentsFromApi) => {
+                            setComments(commentsFromApi);
+                        }
+                    );
+                }}
+            />
             <ul className="comments-list">
                 {comments.map((comment) => {
                     return (
