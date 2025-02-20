@@ -37,3 +37,7 @@ export function postComment(articleId, body, author) {
 export function deleteComment(commentId) {
     return newsApi.delete(`/comments/${commentId}`);
 }
+
+export function fetchTopics() {
+    return newsApi.get("/topics").then(({ data }) => data.topics);
+}
