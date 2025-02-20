@@ -19,7 +19,7 @@ export default function RemoveComment({ commentId, articleId }) {
 
     return (
         <button
-            className="delete-comment-button"
+            className="comment-button"
             onClick={handleRemoveComment}
             disabled={isLoading}
         >

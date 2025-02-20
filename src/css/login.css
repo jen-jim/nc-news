@@ -1,23 +1,24 @@
 .login-form-container {
     width: 480px;
-    height: 200px;
     background-color: #d8cbe1;
     border: 2px solid #7730b0;
     border-radius: 20px;
     margin: 16px auto;
-    padding: 8px;
+    padding: 16px;
+    gap: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .login-header {
+    margin: 0;
     font-size: 32px;
     color: #7730b0;
 }
 
 .login-form {
-    padding: 16px 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,8 +29,6 @@
     border: 1px solid #7730b0;
     background: white;
     padding: 0 8px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
 }
 
 .login-button {
@@ -37,8 +36,6 @@
     border-radius: 20px;
     background: white;
     padding: 0 16px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
     font-weight: bold;
     color: #7730b0;
 }
