@@ -43,13 +43,15 @@ export default function NewComment({ articleId }) {
                         <button
                             className="post-comment-button"
                             onClick={handleNewComment}
+                            disabled={isLoading}
                         >
-                            <i className="fa-solid fa-paper-plane new-comment-icon"></i>{" "}
+                            {isLoading ? (
+                                <i className="fa-solid fa-circle-notch loading-spinner"></i>
+                            ) : (
+                                <i className="fa-solid fa-paper-plane new-comment-icon"></i>
+                            )}{" "}
                             Post comment
-                        </button>{" "}
-                        {isLoading && (
-                            <i className="fa-solid fa-circle-notch loading-spinner"></i>
-                        )}
+                        </button>
                     </div>
                 )}
             </label>

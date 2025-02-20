@@ -52,7 +52,7 @@ img {
 }
 
 .loading-spinner {
-    font-size: 20px;
+    font-size: 16px;
     color: #7730b0;
     animation-name: spin;
     animation-duration: 800ms;
