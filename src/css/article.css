@@ -49,10 +49,27 @@ img {
     font-family: "Nunito", sans-serif;
     font-size: 16px;
     color: #7730b0;
+    background-color: #d8cbe1;
+}
+
+.delete-comment-button {
+    width: fit-content;
+    border: 1px solid #7730b0;
+    border-radius: 20px;
+    background: none;
+    padding: 4px 8px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    color: #7730b0;
+    background-color: #d8cbe1;
+}
+
+.fa-trash-can {
+    padding: 0 1px;
 }
 
 .loading-spinner {
-    font-size: 20px;
+    font-size: 16px;
     color: #7730b0;
     animation-name: spin;
     animation-duration: 800ms;

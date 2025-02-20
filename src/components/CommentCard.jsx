@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { UserAccount } from "../contexts/UserAccount";
 import { formatDate } from "../utils";
+import RemoveComment from "./RemoveComment";
 
 export default function CommentCard({ comment }) {
-    const { body, author, votes, created_at } = comment;
+    const { loggedUser } = useContext(UserAccount);
+
+    const { comment_id, body, article_id, author, votes, created_at } = comment;
 
     return (
         <>
@@ -16,6 +21,9 @@ export default function CommentCard({ comment }) {
                 <i className="fa-solid fa-thumbs-up comments-icon"></i>
                 {votes}
             </p>
+            {loggedUser?.username === author && (
+                <RemoveComment commentId={comment_id} articleId={article_id} />
+            )}
         </>
     );
 }

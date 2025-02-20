@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ArticleComments } from "../contexts/ArticleComments";
 import { fetchCommentsByArticleId } from "../api";
 import Loading from "./Loading";
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment";
 
 export default function CommentList({ articleId }) {
-    const [comments, setComments] = useState([]);
+    const { comments, setComments } = useContext(ArticleComments);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export default function CommentList({ articleId }) {
             setComments(commentsFromApi);
             setIsLoading(false);
         });
-    }, [articleId]);
+    }, [articleId, setComments]);
 
     if (isLoading) {
         return <Loading />;
@@ -22,16 +23,7 @@ export default function CommentList({ articleId }) {
 
     return (
         <section className="comments-list-container">
-            <NewComment
-                articleId={articleId}
-                onNewComment={() => {
-                    fetchCommentsByArticleId(articleId).then(
-                        (commentsFromApi) => {
-                            setComments(commentsFromApi);
-                        }
-                    );
-                }}
-            />
+            <NewComment articleId={articleId} />
             <ul className="comments-list">
                 {comments.map((comment) => {
                     return (

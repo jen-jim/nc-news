@@ -31,3 +31,7 @@ export function fetchUsers() {
 export function postComment(articleId, body, author) {
     return newsApi.post(`/articles/${articleId}/comments`, { body, author });
 }
+
+export function deleteComment(commentId) {
+    return newsApi.delete(`/comments/${commentId}`);
+}

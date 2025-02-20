@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import ArticleCommentsProvider from "../contexts/ArticleCommentsProvider";
 import { fetchArticleByArticleId } from "../api";
 import Loading from "../components/Loading";
 import Article from "../components/Article";
@@ -28,7 +29,9 @@ export default function ArticlePage() {
         <>
             <Article article={currArticle} />
             <Drawer commentCount={currArticle.comment_count}>
-                <CommentList articleId={article_id} />
+                <ArticleCommentsProvider>
+                    <CommentList articleId={article_id} />
+                </ArticleCommentsProvider>
             </Drawer>
         </>
     );

@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { UserAccount } from "../contexts/UserAccount";
-import { postComment } from "../api";
+import { ArticleComments } from "../contexts/ArticleComments";
+import { fetchCommentsByArticleId, postComment } from "../api";
 
-export default function NewComment({ articleId, onNewComment }) {
+export default function NewComment({ articleId }) {
     const { loggedUser } = useContext(UserAccount);
+    const { setComments } = useContext(ArticleComments);
     const [commentInput, setCommentInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -12,13 +14,13 @@ export default function NewComment({ articleId, onNewComment }) {
 
         if (commentInput) {
             setIsLoading(true);
-            postComment(articleId, commentInput, loggedUser.username).then(
-                () => {
-                    onNewComment();
+            postComment(articleId, commentInput, loggedUser.username)
+                .then(() => fetchCommentsByArticleId(articleId))
+                .then((commentsFromApi) => {
+                    setComments(commentsFromApi);
                     setCommentInput("");
                     setIsLoading(false);
-                }
-            );
+                });
         } else return;
     }
 
@@ -41,13 +43,15 @@ export default function NewComment({ articleId, onNewComment }) {
                         <button
                             className="post-comment-button"
                             onClick={handleNewComment}
+                            disabled={isLoading}
                         >
-                            <i className="fa-solid fa-paper-plane new-comment-icon"></i>{" "}
+                            {isLoading ? (
+                                <i className="fa-solid fa-circle-notch loading-spinner"></i>
+                            ) : (
+                                <i className="fa-solid fa-paper-plane new-comment-icon"></i>
+                            )}{" "}
                             Post comment
-                        </button>{" "}
-                        {isLoading && (
-                            <i className="fa-solid fa-circle-notch loading-spinner"></i>
-                        )}
+                        </button>
                     </div>
                 )}
             </label>
