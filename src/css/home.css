@@ -15,13 +15,14 @@ h2 {
 }
 
 .article-card {
-    width: calc(50% - 4px);
+    width: calc(50% - 2px);
     min-width: 420px;
-    border: 2px solid #d8cbe1;
-    padding: 8px;
 }
 
 .article-nav-link {
+    height: 100%;
+    border: 2px solid #d8cbe1;
+    padding: 8px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     grid-template-rows: repeat(0.5fr);

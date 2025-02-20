@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import { formatDate } from "../utils";
 
 export default function ArticleCard({ article }) {
@@ -12,7 +13,10 @@ export default function ArticleCard({ article }) {
     } = article;
 
     return (
-        <>
+        <NavLink
+            to={`/articles/${article.article_id}`}
+            className="article-nav-link"
+        >
             <h3 className="title">{title}</h3>
             <img src={article_img_url} />
             <p className="author">by: {author}</p>
@@ -29,6 +33,6 @@ export default function ArticleCard({ article }) {
                 <i className="fa-solid fa-thumbs-up articles-icon"></i>
                 {votes}
             </p>
-        </>
+        </NavLink>
     );
 }

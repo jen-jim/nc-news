@@ -14,7 +14,7 @@ export default function Article({ article }) {
     } = article;
 
     return (
-        <div className="article-container">
+        <section className="article-container">
             <h3 className="title">{title}</h3>
             <p className="author">by: {author}</p>
             <p className="created-at">{formatDate(created_at)}</p>
@@ -27,6 +27,6 @@ export default function Article({ article }) {
                 <img src={article_img_url} />
             </div>
             <p className="body">{body}</p>
-        </div>
+        </section>
     );
 }

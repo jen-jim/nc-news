@@ -23,3 +23,11 @@ export function fetchCommentsByArticleId(articleId) {
 export function patchArticleVotes(articleId, voteAmount) {
     return newsApi.patch(`/articles/${articleId}`, { inc_votes: voteAmount });
 }
+
+export function fetchUsers() {
+    return newsApi.get("/users").then(({ data }) => data.users);
+}
+
+export function postComment(articleId, body, author) {
+    return newsApi.post(`/articles/${articleId}/comments`, { body, author });
+}
