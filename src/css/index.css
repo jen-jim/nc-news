@@ -2,11 +2,18 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
+body,
+input,
+textarea,
+button {
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
     color: #0e1b1b;
 }
 

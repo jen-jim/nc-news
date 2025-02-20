@@ -1,0 +1,16 @@
+.topic-header-container {
+    padding: 16px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topic-title {
+    margin: 0;
+    font-size: 32px;
+}
+
+.topic-desc {
+    margin: 0;
+    font-style: italic;
+}

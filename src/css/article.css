@@ -36,32 +36,15 @@ img {
     min-height: 31.5px;
     margin: 8px 0 0 0;
     padding: 4px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
 }
 
-.post-comment-button {
+.comment-button {
     width: fit-content;
     border: 1px solid #7730b0;
     border-radius: 20px;
-    background: none;
-    padding: 4px 8px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
-    color: #7730b0;
     background-color: #d8cbe1;
-}
-
-.delete-comment-button {
-    width: fit-content;
-    border: 1px solid #7730b0;
-    border-radius: 20px;
-    background: none;
     padding: 4px 8px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
     color: #7730b0;
-    background-color: #d8cbe1;
 }
 
 .fa-trash-can {
@@ -119,15 +102,12 @@ img {
     border: none;
     background: none;
     padding: 0 16px;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
     color: #7730b0;
 }
 
 .votes-button {
     border: none;
     background: none;
-    font-size: 16px;
     color: #7730b0;
 }
 

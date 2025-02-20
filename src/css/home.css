@@ -1,7 +1,33 @@
-h2 {
+.topics-container {
+    display: flex;
+    gap: 8px;
     margin: 0;
-    padding: 8px 8px 0;
-    font-size: 16px;
+    padding: 16px;
+    align-items: center;
+}
+
+.browse-header {
+    margin: 0;
+    font-size: 20px;
+}
+
+.topics-list {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.topic-button {
+    display: block;
+    background-color: #d8cbe1;
+    color: #7730b0;
+    border: 2px solid #7730b0;
+    border-radius: 20px;
+    padding: 4px 8px;
+    text-decoration: none;
 }
 
 .article-list {

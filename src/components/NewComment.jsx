@@ -41,7 +41,7 @@ export default function NewComment({ articleId }) {
                             value={commentInput}
                         />
                         <button
-                            className="post-comment-button"
+                            className="comment-button"
                             onClick={handleNewComment}
                             disabled={isLoading}
                         >

@@ -3,17 +3,17 @@ import { fetchArticles } from "../api";
 import Loading from "./Loading";
 import ArticleCard from "./ArticleCard";
 
-export default function ArticleList() {
+export default function ArticleList({ topic }) {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
-        fetchArticles().then((articlesFromApi) => {
+        fetchArticles(topic).then((articlesFromApi) => {
             setArticles(articlesFromApi);
             setIsLoading(false);
         });
-    }, []);
+    }, [topic]);
 
     if (isLoading) {
         return <Loading />;
@@ -21,7 +21,6 @@ export default function ArticleList() {
 
     return (
         <section className="article-list-container">
-            <h2>Most recent articles:</h2>
             <ul className="article-list">
                 {articles.map((article) => (
                     <li key={article.article_id} className="article-card">
