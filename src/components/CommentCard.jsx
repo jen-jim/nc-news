@@ -6,7 +6,7 @@ import RemoveComment from "./RemoveComment";
 export default function CommentCard({ comment }) {
     const { loggedUser } = useContext(UserAccount);
 
-    const { comment_id, body, author, votes, created_at } = comment;
+    const { comment_id, body, article_id, author, votes, created_at } = comment;
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function CommentCard({ comment }) {
                 {votes}
             </p>
             {loggedUser.username === author && (
-                <RemoveComment commentId={comment_id} />
+                <RemoveComment commentId={comment_id} articleId={article_id} />
             )}
         </>
     );
