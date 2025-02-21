@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import Loading from "./Loading";
+import Error from "./Error";
 import ArticleCard from "./ArticleCard";
 import SortDropdown from "./SortDropdown";
 import { useSearchParams } from "react-router";
@@ -13,6 +14,7 @@ export default function ArticleList({ topic }) {
     const [sortValue, setSortValue] = useState(sort_by || "created_at");
     const [orderValue, setOrderValue] = useState(order || "desc");
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         if (sort_by) {
@@ -25,14 +27,23 @@ export default function ArticleList({ topic }) {
 
     useEffect(() => {
         setIsLoading(true);
-        fetchArticles(topic, sortValue, orderValue).then((articlesFromApi) => {
-            setArticles(articlesFromApi);
-            setIsLoading(false);
-        });
+        fetchArticles(topic, sortValue, orderValue)
+            .then((articlesFromApi) => {
+                setArticles(articlesFromApi);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                setError(err);
+                setIsLoading(false);
+            });
     }, [topic, sortValue, orderValue]);
 
     if (isLoading) {
         return <Loading />;
+    }
+
+    if (error) {
+        return <Error error={error.response} />;
     }
 
     return (

@@ -7,7 +7,8 @@ export default function Votes({ article_id, votes }) {
     function handleVote(amount) {
         if (votesToUpdate === 0) {
             setVotesToUpdate(amount);
-            patchArticleVotes(article_id, amount).catch(() => {
+            patchArticleVotes(article_id, amount).catch((err) => {
+                console.error(err); // fail silently
                 setVotesToUpdate(0);
             });
         }
