@@ -30,6 +30,26 @@
     text-decoration: none;
 }
 
+.sort-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 0;
+    padding: 0 16px;
+    justify-content: end;
+}
+
+.sort-dropdown {
+    background: #d8cbe1;
+    color: #7730b0;
+    border: 2px solid #7730b0;
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .article-list {
     display: flex;
     flex-flow: row wrap;
