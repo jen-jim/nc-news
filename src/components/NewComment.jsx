@@ -8,20 +8,32 @@ export default function NewComment({ articleId }) {
     const { setComments } = useContext(ArticleComments);
     const [commentInput, setCommentInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     function handleNewComment(e) {
         e.preventDefault();
 
         if (commentInput) {
             setIsLoading(true);
+            setError(null);
             postComment(articleId, commentInput, loggedUser.username)
+                .catch((err) => {
+                    setError(err);
+                    setIsLoading(false);
+                })
                 .then(() => fetchCommentsByArticleId(articleId))
                 .then((commentsFromApi) => {
                     setComments(commentsFromApi);
                     setCommentInput("");
                     setIsLoading(false);
+                })
+                .catch((err) => {
+                    setError(err);
+                    setIsLoading(false);
                 });
-        } else return;
+        } else {
+            setError({ msg: "Please enter a comment" });
+        }
     }
 
     return (
@@ -52,6 +64,12 @@ export default function NewComment({ articleId }) {
                             )}{" "}
                             Post comment
                         </button>
+                        {error && (
+                            <p className="error-msg">
+                                {error.msg ||
+                                    "Something went wrong, please try again"}
+                            </p>
+                        )}
                     </div>
                 )}
             </label>

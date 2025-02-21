@@ -2,24 +2,35 @@ import { useContext, useEffect, useState } from "react";
 import { UserAccount } from "../contexts/UserAccount";
 import { fetchUsers } from "../api";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function LoginForm() {
     const [users, setUsers] = useState([]);
     const [usernameInput, setUsernameInput] = useState("");
     const { setLoggedUser } = useContext(UserAccount);
     const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState(null);
+    const [userNotFound, setUserNotFound] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
-        fetchUsers().then((usersFromApi) => {
-            setUsers(usersFromApi);
-            setIsLoading(false);
-        });
+        fetchUsers()
+            .then((usersFromApi) => {
+                setUsers(usersFromApi);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                setError(err);
+                setIsLoading(false);
+            });
     }, []);
 
     if (isLoading) {
         return <Loading />;
+    }
+
+    if (error) {
+        return <Error error={error.response} />;
     }
 
     function handleLogin(e) {
@@ -30,7 +41,7 @@ export default function LoginForm() {
         if (foundUser) {
             setLoggedUser(foundUser);
         } else {
-            setIsError(true);
+            setUserNotFound(true);
         }
     }
 
@@ -56,7 +67,7 @@ export default function LoginForm() {
                 <button className="login-button" onClick={handleLogin}>
                     Submit
                 </button>
-                {isError && <p className="login-err">username not found</p>}
+                {userNotFound && <p className="login-err">user not found</p>}
             </form>
         </section>
     );

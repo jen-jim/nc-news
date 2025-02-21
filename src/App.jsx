@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ArticlePage from "./pages/ArticlePage";
 import TopicPage from "./pages/TopicPage";
+import Error from "./components/Error";
 
 export default function App() {
     return (
@@ -12,6 +13,7 @@ export default function App() {
             <UserAccountProvider>
                 <NavBar />
                 <Routes>
+                    <Route path="/*" element={<Error />} />
                     <Route path="/" element={<HomePage />} />
                     <Route path="/users/login" element={<LoginPage />} />
                     <Route

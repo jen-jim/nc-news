@@ -1,9 +1,13 @@
+import { useSearchParams } from "react-router";
+
 export default function SortDropdown({
     sortValue,
     setSortValue,
     orderValue,
     setOrderValue
 }) {
+    const [, setSearchParams] = useSearchParams();
+
     const options = [
         { value: "created_at", label: "date" },
         { value: "comment_count", label: "comments" },
@@ -20,6 +24,10 @@ export default function SortDropdown({
                     defaultValue={sortValue}
                     onChange={(e) => {
                         setSortValue(e.target.value);
+                        setSearchParams({
+                            sort_by: e.target.value,
+                            order: orderValue
+                        });
                     }}
                 >
                     {options.map((option) => (
@@ -39,7 +47,13 @@ export default function SortDropdown({
                     id="order-dropdown"
                     className="sort-dropdown"
                     defaultValue={orderValue}
-                    onChange={(e) => setOrderValue(e.target.value)}
+                    onChange={(e) => {
+                        setOrderValue(e.target.value);
+                        setSearchParams({
+                            sort_by: sortValue,
+                            order: e.target.value
+                        });
+                    }}
                 >
                     <option className="dropdown-item" value="desc">
                         descending
