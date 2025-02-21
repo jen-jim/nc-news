@@ -3,12 +3,25 @@ import { fetchArticles } from "../api";
 import Loading from "./Loading";
 import ArticleCard from "./ArticleCard";
 import SortDropdown from "./SortDropdown";
+import { useSearchParams } from "react-router";
 
 export default function ArticleList({ topic }) {
+    const [searchParams] = useSearchParams();
+    const sort_by = searchParams.get("sort_by");
+    const order = searchParams.get("order");
     const [articles, setArticles] = useState([]);
-    const [sortValue, setSortValue] = useState("created_at");
-    const [orderValue, setOrderValue] = useState("desc");
+    const [sortValue, setSortValue] = useState(sort_by || "created_at");
+    const [orderValue, setOrderValue] = useState(order || "desc");
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (sort_by) {
+            setSortValue(sort_by);
+        }
+        if (order) {
+            setOrderValue(order);
+        }
+    }, [sort_by, order]);
 
     useEffect(() => {
         setIsLoading(true);
